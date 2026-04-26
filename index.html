@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Rizkia Maulida | a little space for us</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf7f5;
+      font-family: 'Inter', sans-serif;
+      color: #2c2a2a;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* subtle, classy navigation */
+    nav {
+      padding: 1.2rem 0;
+      text-align: center;
+      border-bottom: 1px solid #f0e2e0;
+      background: rgba(250, 247, 245, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      text-decoration: none;
+      color: #8f6b6b;
+      font-weight: 450;
+      margin: 0 1.2rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      transition: 0.2s;
+    }
+    nav a:hover {
+      color: #c28a8a;
+    }
+
+    /* hero section */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      background: linear-gradient(120deg, #fff6f3, #fff0ed);
+      border-radius: 0 0 56px 56px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      font-weight: 500;
+      color: #b45b6b;
+      letter-spacing: -0.3px;
+    }
+    .hero h1 span {
+      font-size: 2rem;
+      font-weight: 400;
+      display: inline-block;
+    }
+    .hero p {
+      color: #9b727c;
+      max-width: 520px;
+      margin: 0.8rem auto 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+    .hero-icon {
+      margin-top: 1.2rem;
+      font-size: 1.8rem;
+      color: #d697a7;
+    }
+
+    /* gallery section */
+    .gallery {
+      padding: 4rem 0 3rem;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .section-title h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #b35f6f;
+      display: inline-block;
+      border-bottom: 1.5px solid #e7cbcb;
+      padding-bottom: 6px;
+    }
+    .section-title p {
+      color: #a57d86;
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+    .photo-card {
+      background: #ffffffdb;
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 26px -10px rgba(0, 0, 0, 0.05);
+      transition: all 0.25s ease;
+      border: 1px solid #f7e3e3;
+    }
+    .photo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+    }
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #f8ecee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+    .photo-card .caption {
+      padding: 1.2rem 1rem 1.3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 450;
+      color: #88626c;
+      border-top: 1px solid #fae9eb;
+    }
+    .caption i {
+      margin-right: 6px;
+      color: #d28e9e;
+    }
+
+    /* love letter — english, meaningful, not cringey */
+    .love-letter {
+      background: #fffaf7;
+      border-radius: 48px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin: 2rem 0 3rem;
+      border: 1px solid #f2dfe1;
+      box-shadow: 0 8px 18px -8px rgba(0,0,0,0.02);
+    }
+    .love-letter i {
+      font-size: 2.2rem;
+      color: #d697a7;
+      margin-bottom: 0.6rem;
+    }
+    .love-letter h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: #bc6c7c;
+      margin: 0.6rem 0;
+    }
+    .love-letter p {
+      max-width: 560px;
+      margin: 0.8rem auto;
+      line-height: 1.55;
+      color: #8b6b72;
+      font-size: 1rem;
+    }
+    .btn-melting {
+      background: transparent;
+      border: 1.2px solid #daa2ae;
+      padding: 9px 32px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #b15f6f;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 1rem;
+    }
+    .btn-melting:hover {
+      background: #faeef0;
+      transform: scale(1.02);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.75rem;
+      color: #b88793;
+      border-top: 1px solid #f0e0e2;
+      margin-top: 1rem;
+    }
+    .toast-msg {
+      visibility: hidden;
+      min-width: 220px;
+      background-color: #d697a7;
+      color: white;
+      text-align: center;
+      border-radius: 60px;
+      padding: 10px 20px;
+      position: fixed;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      font-weight: 500;
+      z-index: 200;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .toast-msg.show {
+      visibility: visible;
+      animation: fadeToast 2.4s ease;
+    }
+    @keyframes fadeToast {
+      0% { opacity: 0; bottom: 20px; }
+      15% { opacity: 1; bottom: 35px; }
+      85% { opacity: 1; bottom: 35px; }
+      100% { opacity: 0; bottom: 20px; visibility: hidden; }
+    }
+
+    @media (max-width: 680px) {
+      .hero h1 { font-size: 2.3rem; }
+      .photo-grid { gap: 1rem; }
+      .love-letter h3 { font-size: 1.5rem; }
+      .container { padding: 0 20px; }
+    }
+    /* tiny helper */
+    .footnote {
+      text-align: center;
+      font-size: 0.7rem;
+      margin-top: 1rem;
+      color: #c795a3;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="#home">home</a>
+    <a href="#gallery">gallery</a>
+    <a href="#letter">letter</a>
+  </div>
+</nav>
+
+<main>
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-icon"><i class="fas fa-feather-alt"></i></div>
+      <h1>for <span>Rizkia Maulida</span></h1>
+      <p>You make ordinary moments feel like poetry. This is our little corner — soft, honest, and yours.</p>
+    </div>
+  </section>
+
+  <!-- 3 photo slots (static from assets folder) -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="section-title">
+        <h2>things that felt like home</h2>
+        <p>three glimpses of us &nbsp;⟡&nbsp; replace the images inside <strong>/assets/</strong> folder</p>
+      </div>
+      <div class="photo-grid">
+        <!-- Photo 1 -->
+        <div class="photo-card">
+          <div class="photo-frame">
+            <img src="assets/foto1.jpg" alt="memory one" onerror="this.src='https://placehold.co/500x500/f5e6e8/d697a7?text=add+foto1.jpg'">
+          </div>
+          <div class="caption">
+            <i class="fas fa-sun"></i> the golden hour with you
+          </div>
+        </div>
+        <!-- Photo 2 -->
+        <div class="photo-card">
+          <div class="photo-frame">
+            <img src="assets/foto2.jpg" alt="memory two" onerror="this.src='https://placehold.co/500x500/f5e6e8/d697a7?text=add+foto2.jpg'">
+          </div>
+          <div class="caption">
+            <i class="fas fa-heart"></i> quietly, completely
+          </div>
+        </div>
+        <!-- Photo 3 -->
+        <div class="photo-card">
+          <div class="photo-frame">
+            <img src="assets/foto3.jpg" alt="memory three" onerror="this.src='https://placehold.co/500x500/f5e6e8/d697a7?text=add+foto3.jpg'">
+          </div>
+          <div class="caption">
+            <i class="fas fa-cloud-moon"></i> your laugh, my favorite sound
+          </div>
+        </div>
+      </div>
+      <div class="footnote">
+        <i class="fas fa-folder-open"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- English melting letter section -->
+  <section id="letter" class="container">
+    <div class="love-letter">
+      <i class="fas fa-envelope-open-text"></i>
+      <h3>Rizkia,</h3>
+      <p>I never believed in perfect timing until I met you. You turned ordinary days into little treasures — a quiet laugh, a glance, a hand to hold. There's no need for grand gestures. Just you. Just this. And I’d still choose you in every version of this life.</p>
+      <p style="font-size: 0.9rem; font-style: italic; margin-top: 12px;">— you make my world softer —</p>
+      <button id="softSurprise" class="btn-melting"><i class="fas fa-star"></i> &nbsp; a whisper for you &nbsp; <i class="fas fa-star"></i></button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>always, for rizkia maulida — with my whole heart.</p>
+    <p style="margin-top: 6px;">✧ a space made of warmth and quiet love ✧</p>
+  </div>
+</footer>
+
+<div id="toastMsg" class="toast-msg">you are my favorite thought, always.</div>
+
+<script>
+  (function() {
+    const surpriseButton = document.getElementById('softSurprise');
+    const toastEl = document.getElementById('toastMsg');
+    
+    // collection of soft, melting phrases in english (not cringe, just tender)
+    const softMessages = [
+      "you feel like the first sip of coffee in the morning — warm, familiar, necessary.",
+      "falling for you wasn’t falling. it was walking into a room i had always belonged to.",
+      "i still get butterflies when you smile. don't tell anyone.",
+      "you are the quiet poetry my restless heart needed.",
+      "being loved by you is the gentlest thing i’ve ever known.",
+      "every version of me will always find you. in this life and the next."
+    ];
+    
+    function showMeltingToast() {
+      const randomMsg = softMessages[Math.floor(Math.random() * softMessages.length)];
+      toastEl.innerText = randomMsg;
+      toastEl.classList.remove('show');
+      // force reflow
+      void toastEl.offsetWidth;
+      toastEl.classList.add('show');
+      setTimeout(() => {
+        toastEl.classList.remove('show');
+      }, 2600);
+    }
+    
+    if (surpriseButton) {
+      surpriseButton.addEventListener('click', showMeltingToast);
+    }
+    
+    // smooth scroll for navigation
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').slice(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    
+    // small detail: handle any missing images gracefully (already done via onerror)
+  })();
+</script>
+</body>
+</html>
